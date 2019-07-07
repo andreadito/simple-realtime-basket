@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ACME SERVICE - TESTER</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h2>ACME SERVICE - TESTER</h2>
+
+<ul>
+    <li>
+        <p>Fruit tea</p>
+        <span>£ 3.11</span>
+        <button onclick="app.addToBasket('FR1')">Add To Basket</button>
+        <button onclick="app.removeFromBasket('FR1')">Remove From Basket</button>
+    </li>
+    <li>
+        <p>Strawberries</p>
+        <span>£ 5</span>
+        <button onclick="app.addToBasket('SR1')">Add To Basket</button>
+        <button onclick="app.removeFromBasket('SR1')">Remove From Basket</button>
+    </li>
+    <li>
+        <p>Coffee</p>
+        <span>£ 11.23</span>
+        <button onclick="app.addToBasket('CF1')">Add To Basket</button>
+        <button onclick="app.removeFromBasket('CF1')">Remove From Basket</button>
+    </li>
+</ul>
+<h3>Basket</h3>
+<div id="print"></div>
+<h2><span>Total: </span><span class="total"></span></h2>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/main.js"></script>
+</body>
+</html>

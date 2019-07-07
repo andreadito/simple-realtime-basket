@@ -1,0 +1,28 @@
+{
+  "name": "acme-supermarket",
+  "version": "1.0.0",
+  "description": "ACME JavaScript Test",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server",
+    "test": "jest"
+  },
+  "repository": "git+https://github.com/ag-digital/acme-supermarket-test.git",
+  "keywords": [
+    "javascript",
+    "test"
+  ],
+  "author": "Andrea Dito",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ag-digital/acme-supermarket-test/issues"
+  },
+  "homepage": "https://github.com/ag-digital/acme-supermarket-test#readme",
+  "devDependencies": {
+    "jest": "^24.8.0"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "socket.io": "^2.2.0"
+  }
+}
