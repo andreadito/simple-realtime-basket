@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node server",
+    "build": "jest",
     "test": "jest"
   },
   "repository": "git+https://github.com/ag-digital/acme-supermarket-test.git",
