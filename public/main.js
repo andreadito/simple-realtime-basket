@@ -2,22 +2,15 @@ const cart = (io) => {
 
     const print = document.getElementById("print");
     const socket = io();
-    let responses = [];
+    let latestRequestTimeStamp = null;
     const basket = [];
 
     socket.on('updateBasket', (data) => {
-        // TODO: in a real-world scenario, should be emptied in another external service or another thread
-        responses.push(data);
+        const result = data.timeStamp === latestRequestTimeStamp ? data : null;
 
-        // TODO: in a real-world scenario, the reordering should be implemented in another external service or another thread.
-        const reordered = responses.sort((a,b) => {
-            return new Date(b.timeStamp) - new Date(a.timeStamp);
-        });
-
-
-        // TODO: in a real-world this should be an observable field
-        document.getElementsByClassName('total')[0].innerText = reordered[0].total;
-
+        if (result) {
+            document.getElementsByClassName('total')[0].innerText = result.total;
+        }
     });
 
     const print_basket = (basket) => {
@@ -26,7 +19,8 @@ const cart = (io) => {
 
     const sendUpdateBasket = (basket) => {
         print.innerHTML = print_basket(basket);
-        socket.emit('calculateBasket', { timeStamp: Date.now(), basket});
+        latestRequestTimeStamp = Date.now();
+        socket.emit('calculateBasket', { timeStamp:latestRequestTimeStamp , basket});
     };
 
     const removeFromBasket = (id) => {
@@ -58,7 +52,7 @@ const cart = (io) => {
         sendUpdateBasket(basket);
     };
 
-    return { addToBasket, removeFromBasket}
+    return { addToBasket, removeFromBasket }
 };
 
 const app = cart(io);
