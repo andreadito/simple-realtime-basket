@@ -10,8 +10,6 @@ const port = process.env.PORT || 3000;
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/library/socket.io.js', express.static(__dirname + '/node_modules/socket.io-client/dist/socket.io.js'));
-
 io.on('connection', (socket) => {
 
     const acmeBasket = new Basket(itemPricingRules);
