@@ -8,11 +8,9 @@ const { itemPricingRules } = require('./basket.config');
 
 const port = process.env.PORT || 3000;
 
-server.listen(port, () => {
-    console.log('ACME SERVICE listening at port %d', port);
-});
-
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use('/library/socket.io.js', express.static(__dirname + '/node_modules/socket.io-client/dist/socket.io.js'));
 
 io.on('connection', (socket) => {
 
@@ -30,3 +28,8 @@ io.on('connection', (socket) => {
         socket.emit('updateBasket',result);
     });
 });
+
+server.listen(port, () => {
+    console.log('ACME SERVICE listening at port %d', port);
+});
+
