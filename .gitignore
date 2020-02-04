@@ -90,3 +90,8 @@ typings/
 .dynamodb/
 
 acme-supermarket-test.iml
+.idea/misc.xml
+.idea/vcs.xml
+.idea/simple-realtime-basket.iml
+.idea/modules.xml
+.idea/workspace.xml
