@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/ag-digital/acme-supermarket-test#readme",
   "devDependencies": {
-    "jest": "^25.2.6"
+    "jest": "^26.1.0"
   },
   "dependencies": {
     "express": "^4.17.1",
